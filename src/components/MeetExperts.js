@@ -180,8 +180,6 @@ const Nurses = styled.div`
 `;
 
 const CarouselItems = (item) =>{
-    console.log(2);
-    console.log(item);
     return(
         <Nurses className="">
             <div className="DocImgSec">
