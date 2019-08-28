@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
@@ -18,8 +18,8 @@ import Infrastructure from "../components/Infrastructure";
 
 const Caption = (props) => {
     return (
-        <div className={`${props.wrapperClass} my-3`}>
-            <h3 className="text-sukoon text-lg font-gilroyMedium font-bold block">
+        <div className="my-4">
+            <h3 className="text-sukoon font-semibold block">
                 {props.subHeading || ''}
             </h3>
             <Para>
@@ -32,9 +32,9 @@ const Caption = (props) => {
 
 const WhySukoon = (props) => {
     return (
-        <section id="why-sukoon" className="why-sukoon p-4">
+        <section id="why-sukoon" className="why-sukoon py-6 px-4">
             <Title subHeading="About" titleLight="Why" titleBold="Sukoon" />
-            <Caption wrapperClass="mt-4" subHeading="Consult best doctors"
+            <Caption subHeading="Consult best doctors"
                      para=" Get expert advice from our team of experienced doctors, led by Dr. Sameer Parikh"/>
             <Caption subHeading="Get personalised care"
                      para="Receive customised and holistic care because of our incredible 1:1 nurse to patient ratio"/>
@@ -73,18 +73,6 @@ const InPatientServices = (props) => {
         <section id="inpatient-services" className="p-4">
             <Title subHeading="IPD" titleLight="Residential" titleBold="Services" display="block"/>
             <Carousel class="" content={content}/>
-        </section>
-    )
-};
-
-const InHousePharmacy = (props) => {
-    return (
-        <section className="p-4">
-            <Title titleLight="In-House" titleBold="Pharmacy" display="block"/>
-            <Para className="text-right">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s
-            </Para>
         </section>
     )
 };
@@ -141,7 +129,7 @@ const Faqs = (props) => {
             <div className="flex-col flex p-4 shadow-lg my-4 bg-white">
                 <FaqCardWrapper className="flex justify-between">
                     <details>
-                        <summary className="text-sukoon text-lg font-gilroyMedium">{item.summary}</summary>
+                        <summary className="text-sukoon text-lg font-medium">{item.summary}</summary>
                         <Para width="100%" padding="8px 0">
                             {item.description}
                         </Para>
@@ -169,21 +157,21 @@ const Blogs = (props) =>{
                 <Title subHeading="Learn" titleLight="" titleBold="Blogs"/>
                 <div className="shadow-lg mt-4">
                     <img src={BlogImg} alt="Blog"/>
-                    <div className="p-4">
-                    <span className="block pt-2 text-sukoon text-xl font-normal">
+                    <div className="p-2">
+                    <h5 className="block pt-2 text-sukoon font-normal">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </span>
+                    </h5>
                         <Para className="text-gray-700 text-right py-4">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry's standard dummy text ever since the 1500s,
                         </Para>
                         <div>
-                            <span className="text-sukoon font-bold text-sm">Guest</span>
-                            <span className="text-sukoon font-light text-sm"> / Apr 16 2019</span>
+                            <span className="text-sukoon font-bold small">Guest</span>
+                            <span className="text-sukoon font-normal small"> / Apr 16 2019</span>
                         </div>
                     </div>
                 </div>
-                <div className="mt-6 flex">
+                <div className="mt-6 text-sukoon flex">
                     <Link to="/" className="pb-1 border-solid border-b border-sukoon ">Read More Blogs</Link>
                     <ArrowButton border={false} margin="0 12px"/>
                 </div>
@@ -203,17 +191,20 @@ const OutPatientServices = (props) => {
 };
 
 function IndexPage() {
+
+    const[overlay, setOverlay] = useState(false);
+
     return (
-        <Layout>
+        <Layout setOverlay={setOverlay}>
             <SEO
                 title="Home"
                 keywords={[`Sukoon`, `hospital`, `react`, `tailwindcss`]}
             />
-            <Banner bookNow contact discover backgroundImg={HeaderBg}/>
+            <Banner overlay={overlay} bookNow contact discover backgroundImg={HeaderBg}/>
             <WhySukoon/>
             <InPatientServices/>
             <OutPatientServices/>
-            {/*<Infrastructure />*/}
+            <Infrastructure />
             <MeetExperts/>
             <Faqs/>
             <Blogs/>

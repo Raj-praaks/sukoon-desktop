@@ -14,8 +14,6 @@ import BookBtn from "../elements/BookNowBtn";
 
 const FooterLinks = styled.ul`
 font-size: 16px !important;
-font-family: Gilroy-Medium !important;
-
 `;
 
 
@@ -24,21 +22,21 @@ const QuickLinks = (props) =>{
     return(
         <section className="flex justify-between p-4">
             <div>
-                <span className="text-sukoon text-3xl font-gilroyBold block">Sukoon</span>
-                <FooterLinks className="mt-2 font-giloryMedium">
-                    <li className="text-gray-600 list-none"><Link to="/">Sitemap</Link></li>
-                    <li className="text-gray-600 list-none"><Link to="/">Our Story</Link></li>
-                    <li className="text-gray-600 list-none"><Link to="/">Privacy Policy</Link></li>
-                    <li className="text-gray-600 list-none"><Link to="/">Terms & Conditions</Link></li>
-                    <li className="text-gray-600 list-none"><Link to="/">Careers</Link></li>
-                </FooterLinks>
+                <span className="text-sukoon text-2xl font-semibold block">Sukoon</span>
+                <ul className="mt-2 font-medium">
+                    <li className="text-gray-600 text-lg list-none"><Link to="/">Sitemap</Link></li>
+                    <li className="text-gray-600 text-lg list-none"><Link to="/">Our Story</Link></li>
+                    <li className="text-gray-600 text-lg list-none"><Link to="/">Privacy Policy</Link></li>
+                    <li className="text-gray-600 text-lg list-none"><Link to="/">Terms & Conditions</Link></li>
+                    <li className="text-gray-600 text-lg list-none"><Link to="/">Careers</Link></li>
+                </ul>
             </div>
             <div>
-                <span className="text-sukoon text-3xl font-gilroyBold block">Quick Links</span>
-                <FooterLinks className="mt-2 font-giloryMedium">
-                        <li className="text-gray-600 list-none">
-                            <Link to="/about">About Us</Link></li>
-                    <li className="text-gray-600 list-none">
+                <span className="text-sukoon text-2xl font-semibold block">Quick Links</span>
+                <FooterLinks className="mt-2 font-medium">
+                    <li className="text-gray-600 text-lg list-none">
+                        <Link to="/about">About Us</Link></li>
+                    <li className="text-gray-600 text-lg list-none">
                         <Link to="/services">Services</Link></li>
                     <li className="text-gray-600 list-none">
                         <Link to="/infrastructure">Infrastructure</Link></li>
@@ -63,15 +61,13 @@ const QuickLinks = (props) =>{
 const Subscribe = (props) =>{
     return(
         <div className="p-4">
-            <div className="font-gilroyMedium text-xl">
+            <div className="font-medium text-xl">
                 <span className="text-sukoon ">Subscribe</span>
                 <span className="ml-2 text-sukoonYellow">Our Newsletter</span>
             </div>
             <div className="mt-4 flex justify-between">
-                <input type="text" placeholder="Enter Your Email Address" className="outline-none w-10/12 bg-transparent border-b border-sukoon"/>
-                <BookBtn theme="green" id="nav-booking-button">
-                    Go
-                </BookBtn>
+                <input type="text" placeholder="Enter Your Email Address" className="outline-none w-10/12 bg-transparent"/>
+                <BookBtn theme="green">Go</BookBtn>
             </div>
         </div>
     )
@@ -80,7 +76,7 @@ const Subscribe = (props) =>{
 const ReachUs = (props) =>{
     return(
         <div className="p-4">
-            <span className="text-sukoon text-3xl  font-normal font-gilroyBold">Reach Us</span>
+            <h2 className="text-sukoon text-4xl  font-normal font-medium">Reach Us</h2>
             <Para>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
             </Para>
@@ -111,9 +107,9 @@ const FollowUs = (props) =>{
     -webkit-text-fill-color: transparent;
     `;
     return(
-        <div className="p-4">
-            <span className="text-sukoon text-3xl mb-2 font-gilroyBold">Follow us on</span>
-            <div className="text-sm mr-2 flex justify-between break-words font-gilroyMedium">
+        <div className="p-4 font-medium">
+            <h2 className="text-sukoon text-xl mb-2">Follow us on</h2>
+            <div className="text-sm mr-2 flex justify-between break-words">
                 <a href="/" className="mr-2 text-blue-800 cursor-pointer">Facebook</a>
                 <a href="/" className="mr-2 text-blue-400 cursor-pointer">Twitter</a>
                 <Instagram href="/">Instagram</Instagram>
@@ -125,16 +121,40 @@ const FollowUs = (props) =>{
 
 const CopyRight = (props) =>{
     return(
-        <div className="py-2 px-6 bg-sukoon text-center font-gilroyMedium">
+        <div className="py-2 px-6 bg-sukoon text-center font-medium break-words">
             <span className="text-white text-xs">Copyright © 2019 - All Rights Reserved - Design By Praaks</span>
         </div>
     )
 };
 
 
-function Layout({ children }) {
+const LayoutContainer = styled.div((props)=> {
 
-    const [isExpanded, toggleMenu] = useState(false);
+    if (props.overlay) {
+        return `
+            &::after{
+                    content: '';
+                    background: #595c62c2;
+                    position: absolute;
+                    top: 0;
+                    z-index: 1;
+                    display: block;
+                    width: 100%;
+                    height: 100vh;
+            }
+          `
+    }
+
+});
+
+function Layout({ children, setOverlay }) {
+
+    const [isExpanded, switchMenu] = useState(false);
+
+    const toggleMenu = (value) =>{
+        switchMenu(value);
+        setOverlay(value);
+    };
 
   return (
     <StaticQuery
@@ -148,23 +168,24 @@ function Layout({ children }) {
         }
       `}
       render={data => (
-        <div className={`${
-            isExpanded ? `menu-open  h-screen overflow-hidden relative` : `flex close`
+        <LayoutContainer className={`${
+            isExpanded ? `menu-open` : `flex `
             } flex-col min-h-screen text-gray-900`}
+                         overlay={isExpanded}
         >
           <Header toggleMenu={toggleMenu} siteTitle={data.site.siteMetadata.title} />
           <main className="flex flex-col flex-1 justify-center max-w-4xl mx-auto w-full">
             {children}
           </main>
           <footer className="">
-            <Banner captionLight="Book An" captionBold="Appointment"/>
+            <Banner bookNow captionLight="Book An" captionBold="Appointment"/>
             <Subscribe/>
             <QuickLinks/>
             <ReachUs/>
             <FollowUs/>
             <CopyRight/>
           </footer>
-        </div>
+        </LayoutContainer>
       )}
     />
   );

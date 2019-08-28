@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 
-import SukoonLogo from "../images/sukoon-logo/logo_dark@3x.png"
 import Call from "../images/icons/phone.svg";
-
 
 // Components
 import BookBtn from "../elements/BookNowBtn";
@@ -19,30 +17,28 @@ const Nav = styled.nav`
   transition: all 200ms ease-in-out;
   background: #C2DCD3;
   min-height: 50px;
+  z-index: 101;
 `;
 
 const Menu = styled.span`
-
-  width: 32px;
-  height: 25px;
     
   &::before{
-    top: 18px;
-    left:12px;
+    top: 20px;
+    left:14px;
     position: absolute;
     content: '';
     background: #12443e;
-    width: 32px;
+    width: 34px;
     height: 2px;
   }
   
   &::after{
-    left: 12px;
-    top: 23px;
+    left: 14px;
+    top: 26px;
     position: absolute;
     content: '';
     background: #12443e;
-    width: 32px;
+    width: 34px;
     height: 2px;
   }
 `;
@@ -79,43 +75,31 @@ function Header(props) {
     });
 
     return (
-        <Nav id="nav-bar" className="">
-            <div className={`${
-                isExpanded ? `flex` : `flex`
-                } flex-wrap items-center justify-between mx-auto p-4 `}
-            >
-                <div className="w-8">
-                    <Link to="/" className="flex items-center no-underline ">
-                        <img src={SukoonLogo} alt="Sukoon Logo"/>
-                    </Link>
-                </div>
-                <div className="flex">
-                    <BookBtn theme="green" id="nav-booking-button" wrapperClass="hide" full>
-                        Book Appointment
-                    </BookBtn>
-                    <button
-                        className="block relative outline-none flex items-center pl-3 rounded text-sukoon"
-                        onClick={() => {toggleExpansion(!isExpanded);
-                                                props.toggleMenu(!isExpanded);}}>
-                        <Menu id="menu-hamburger-icon" className="text-xs font-bold"><span>MENU</span></Menu>
-                    </button>
-                </div>
-            </div>
+        <Nav id="nav-bar" className="fixed bottom-0">
+
             <div
                 className={`${
-                    isExpanded ? `block` : `hidden`
-                    } items-center justify-between w-full h-screen bg-menuBg`}
+                    isExpanded ? `` : `hidden`
+                    } items-center justify-between w-full bg-menuBg`}
             >
-                {/*<div className="flex justify-between p-4">*/}
-                {/*    <div className="w-12">*/}
-                {/*        <Link to="/" className="flex items-center no-underline ">*/}
-                {/*            <img src={SukoonLogo} alt="Sukoon Logo"/>*/}
-                {/*        </Link>*/}
-                {/*    </div>*/}
-                {/*    <button onClick={() => { toggleExpansion(!isExpanded); props.toggleMenu(!isExpanded);}} className="text-sukoon outline-none mr-4 text-3xl">x</button>*/}
-                {/*</div>*/}
                 <MenuLinkWrapper className="flex flex-col">
-                    <div className="text-lg ml-4 text-sukoon flex flex-col">
+                    <div className="mt-6 flex justify-around">
+                        <div className="">
+                            <img src={Call} className="w-4 inline-block" alt="Contact Sukoon"/>
+                            <span className="ml-2">+91 9876543210</span>
+                        </div>
+                        <div className="">
+                            <img src={Call} className="w-4 inline-block" alt="Contact Sukoon"/>
+                            <span className="ml-2">+91 9876543210</span>
+                        </div>
+                    </div>
+                    <div className="text-lg ml-6 text-sukoon flex flex-col">
+                        <Link
+                            to="/"
+                            className="inline-block mt-4 mt-0 mr-6 no-underline"
+                        >
+                            Home
+                        </Link>
                         <Link
                             to="/services"
                             className="inline-block mt-4 mt-0 mr-6 no-underline"
@@ -166,17 +150,30 @@ function Header(props) {
                             Contact
                         </Link>
                     </div>
-                    <div className="mx-4 mt-6 flex justify-around">
-                        <div className="">
-                            <img src={Call} className="w-4 inline-block" alt="Contact Sukoon"/>
-                            <span className="ml-1">+91 9876543210</span>
-                        </div>
-                        <div className="">
-                            <img src={Call} className="w-4 inline-block" alt="Contact Sukoon"/>
-                            <span className="ml-1">+91 9876543210</span>
-                        </div>
-                    </div>
                 </MenuLinkWrapper>
+            </div>
+            <div className={`${
+                isExpanded ? `` : ``
+                } flex flex-wrap items-center justify-between mx-auto p-2`}
+            >
+                <div className="">
+                    <BookBtn theme="green" id="nav-booking-button" wrapperClass="hide mr-2" full>
+                        Book Appointment
+                    </BookBtn>
+                </div>
+                <div className="flex justify-between py-2">
+                    <button
+                        className="block relative focus:outline-none flex items-center px-3 pb-2 rounded text-sukoon"
+                        onClick={() => {
+                            toggleExpansion(!isExpanded);
+                            props.toggleMenu(!isExpanded);
+                            }
+                        }>
+                        <Menu id="menu-hamburger-icon" className="text-xs font-bold">
+                            <span>MENU</span>
+                        </Menu>
+                    </button>
+                </div>
             </div>
         </Nav>
     );

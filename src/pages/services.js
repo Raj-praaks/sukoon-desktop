@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -119,8 +119,10 @@ const CareService = (props) =>{
 };
 
 function Services() {
+    const[overlay, setOverlay] = useState(false);
+
     return (
-        <Layout>
+        <Layout setOverlay={setOverlay}>
             <SEO
                 title="About"
                 keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
@@ -128,7 +130,7 @@ function Services() {
             <Banner backgroundImg={BannerBg}/>
             <CareService titleLight="In Patient" titleBold="Care Services"/>
             <CareService titleLight="Out Patient" titleBold="Care Services"/>
-            {/*<MeetExperts/>*/}
+            <MeetExperts/>
         </Layout>
     );
 }

@@ -1,113 +1,51 @@
-/*global css =======*/
-body h2 {
-    font-size: 2.5rem !important;
-    line-height: normal;
+@import url('https://fonts.googleapis.com/css?family=Poppins:400');
 
-}body h3 {
-    font-size: 1.3rem !important;
-    line-height: normal;
-}
-body h4 {
-    font-size: 1rem !important;
-    line-height: normal;
-}
-body h5 {
-    font-size: 0.5rem !important;
-    line-height: normal;
-}
-body select{
-    background-image: url(https://image.flaticon.com/icons/svg/32/32209.svg) !important;
-    -webkit-appearance: none;
-    background-size: 10px;
-    background-repeat: no-repeat;
-    background-position: right;
-}
- body h2 span {
-     display: inline-block !important;
-     line-height: normal;
- }
+html {font-size: 18px;}
 
 
-body p{
-    font-weight: 400;
-    line-height: normal;
-    text-align: justify;
-}
+/*!*Fonts *!*/
+/*@font-face {*/
+/*    font-family: gilroy-regular;*/
+/*    src: url(../../static/fonts/Gilroy-Regular.ttf);*/
+/*}*/
 
-body{
-    font-family: gilroy-regular;
+/*@font-face {*/
+/*    font-family: gilroy-bold;*/
+/*    src: url(../../static/fonts/Gilroy-Bold.ttf);*/
+/*}*/
+/*@font-face {*/
+/*    font-family: gilroy-light;*/
+/*    src: url(../../static/fonts/Gilroy-Light.ttf);*/
+/*}*/
+/*@font-face {*/
+/*    font-family: gilroy-thin;*/
+/*    src: url(../../static/fonts/Gilroy-Thin.ttf);*/
+/*}*/
+/*@font-face {*/
+/*    font-family: gilroy-black;*/
+/*    src: url(../../static/fonts/Gilroy-Black.ttf);*/
+/*}*/
+/*@font-face {*/
+/*    font-family: gilroy-extraBold;*/
+/*    src: url(../../static/fonts/Gilroy-ExtraBold.ttf);*/
+/*}*/
+/*@font-face {*/
+/*    font-family: gilroy-heavy;*/
+/*    src: url(../../static/fonts/Gilroy-Heavy.ttf);*/
+/*}*/
 
-}
-body button:focus {
-    outline: none !important;
-}
-body select {
-    border-radius: 0px !important;
-}
-
-    /* width */
-body::-webkit-scrollbar {
-    width: 0px;
-}
-/* Track */
-body::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-/* Handle */
-body::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-/* Handle on hover */
-body::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-
-/*Fonts */
-@font-face {
-    font-family: gilroy-regular;
-    src: url(../../static/fonts/Gilroy-Regular.ttf);
-}
-
-@font-face {
-    font-family: gilroy-bold;
-    src: url(../../static/fonts/Gilroy-Bold.ttf);
-}
-@font-face {
-    font-family: gilroy-light;
-    src: url(../../static/fonts/Gilroy-Light.ttf);
-}
-@font-face {
-    font-family: gilroy-thin;
-    src: url(../../static/fonts/Gilroy-Thin.ttf);
-}
-@font-face {
-    font-family: gilroy-black;
-    src: url(../../static/fonts/Gilroy-Black.ttf);
-}
-@font-face {
-    font-family: gilroy-extraBold;
-    src: url(../../static/fonts/Gilroy-ExtraBold.ttf);
-}
-@font-face {
-    font-family: gilroy-heavy;
-    src: url(../../static/fonts/Gilroy-Heavy.ttf);
-}
-
-@font-face {
-    font-family: gilroy-medium;
-    src: url(../../static/fonts/Gilroy-Medium.ttf);
-}
-@font-face {
-    font-family: gilroy-semiBold;
-    src: url(../../static/fonts/Gilroy-SemiBold.ttf);
-}
-@font-face {
-    font-family: gilroy-ultraLight;
-    src: url(../../static/fonts/Gilroy-UltraLight.ttf);
-}
+/*@font-face {*/
+/*    font-family: gilroy-medium;*/
+/*    src: url(../../static/fonts/Gilroy-Medium.ttf);*/
+/*}*/
+/*@font-face {*/
+/*    font-family: gilroy-semiBold;*/
+/*    src: url(../../static/fonts/Gilroy-SemiBold.ttf);*/
+/*}*/
+/*@font-face {*/
+/*    font-family: gilroy-ultraLight;*/
+/*    src: url(../../static/fonts/Gilroy-UltraLight.ttf);*/
+/*}*/
 
 /**
  * This injects Tailwind's base styles, which is a combination of
@@ -172,6 +110,42 @@ body::-webkit-scrollbar-thumb:hover {
  * @import "utilities/skew-transforms";
  */
 
+
+/* Typography type scale css */
+body {
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #333;
+    letter-spacing: 0.6px;
+}
+
+p {margin-bottom: 1.25em;}
+
+h1, h2, h3, h4, h5 {
+    margin: 0 0 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 3.052em;
+}
+
+h2 {font-size: 2.41em;}
+
+h3 {font-size: 1.4em;}
+
+h4 {font-size: 1.3em;}
+
+h5 {font-size: 1.2em;}
+
+.small, .text_small {font-size: 0.8em;}
+
+
 /* Sticky menu CSS*/
 
 .sticky{
@@ -179,8 +153,14 @@ body::-webkit-scrollbar-thumb:hover {
     transition: all 200ms ease-in-out;
     position: fixed;
     left: 0;
-    top: 0;
+    bottom: 0;
     right: 0;
+}
+
+.menu-open{
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
 }
 
 .appointment-type{
@@ -291,8 +271,6 @@ button.globe_btn a {
 .menu-open span#menu-hamburger-icon::after{
     animation: rotate-center_second 0.6s ease-in-out both;
 }
-
-
 .menu-open .bg-menuBg {
     animation: fade-in-bck 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }

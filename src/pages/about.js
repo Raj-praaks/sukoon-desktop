@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -55,8 +55,10 @@ const CareService = (props) =>{
 };
 
 function AboutPage() {
-  return (
-      <Layout>
+    const[overlay, setOverlay] = useState(false);
+
+    return (
+      <Layout setOverlay={setOverlay}>
         <SEO
             title="About"
             keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}

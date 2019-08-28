@@ -17,15 +17,16 @@ const Header = styled.section`
     background-position: top 0 left 0;
     background-size: cover;
     background-repeat: no-repeat;
+    filter: ${props=> props.overlay ? 'blur(3px)' : 'none'};
 `;
 
 const Heading = (props) => {
     return (
         <HeadingWrapper className="text-sukoon">
-            <span className="font-gilroyLight block">
+            <span className="font-light block">
                 {props.captionLight || "Don't Just Stay"}
             </span>
-            <span className="font-gilroyBold block">
+            <span className="font-semibold block">
                 {props.captionBold || "Live Here !"}
             </span>
         </HeadingWrapper>
@@ -36,7 +37,7 @@ const ParaSection = (props) => {
 
     return(
         <div>
-            <p className="text-para font-gilroyMedium py-1 text-left text-v6xl mb-8 block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur culpa
+            <p className="text-para font-medium py-1 text-left text-v6xl mb-8 block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur culpa
                 inventore ipsum!</p>
         </div>
     )
@@ -45,7 +46,7 @@ const ParaSection = (props) => {
 const BookNow = (props) =>{
 
     return(
-        <div className="mb-10">
+        <div className="mb-12">
             <div id="contact-info-container" className="mt-4">
                 <select name="appointment" id="appointment-type"
                         className="block py-2 bg-transparent border-b border-solid border-sukoon outline-none w-full font-medium"
@@ -57,20 +58,15 @@ const BookNow = (props) =>{
                 <input type="text" placeholder="Email / Phone"
                        className="block bg-transparent border-b border-solid border-sukoon outline-none w-full pl-1 pb-1  pt-2 text-sukoon"/>
             </div>
-            <div className="flex mt-6">
+            <div className="flex flex-col mt-16">
                     <BookBtn border bg="transparent" wrapperClass="">
                         Book Now
                     </BookBtn>
                 {props.contact ?
-                    <div className="my-auto mx-2">
-                        <span className="font-gilroyRegular">or Call at +91 9876543210</span>
+                    <div className="my-4">
+                        <span className="font-normal">or Call at +91 9876543210</span>
                     </div> : null}
             </div>
-            { props.discover ?
-                <div className="mt-12 flex">
-                    <Link to="/" className="underline">Explore Appointments</Link>
-                    <ArrowButton border={false} margin="0 12px"/>
-                </div> : null}
         </div>
     )
 };
@@ -79,8 +75,8 @@ const BookNow = (props) =>{
 
 const Banner = (props) => {
     return (
-        <Header id="header-intro" bookNow={props.bookNow} backgroundImg={props.backgroundImg} className="w-full px-4">
-            <div className="mt-8">
+        <Header id="header-intro" overlay={props.overlay} bookNow={props.bookNow} backgroundImg={props.backgroundImg} className="w-full px-4">
+            <div className="mt-20 mb-8">
                 <Heading captionLight={props.captionLight} captionBold={props.captionBold} />
             </div>
             {props.bookNow ?

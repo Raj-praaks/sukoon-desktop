@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const DetailWrapper = styled.details((props)=>{
 
-
     return`
             &{
             border: ${props.border ? '1px solid #969696' : ''};
@@ -11,6 +10,7 @@ const DetailWrapper = styled.details((props)=>{
             border-radius: 4px;
            }
           & summary {
+            line-height: normal;
             display: flex;
             justify-content: space-between;
             outline: none
@@ -43,7 +43,7 @@ const Details = (props) =>{
 
     return(
         <DetailWrapper open={props.open} padding={props.padding} border={props.border}  className= "mb-3">
-            <summary className={`${props.summaryClass || 'px-5'} `}><span className={`${props.summaryTextClass || 'text-3xl'}  text-left text-sukoon leading-none font-gilroyMedium`}>{props.summary}</span></summary>
+            <summary className={`${props.summaryClass || 'leading-normal px-5'} `}><h2 className={`${props.summaryTextClass || 'text-2xl'}  text-left text-sukoon leading-none`}>{props.summary}</h2></summary>
             {props.content()}
         </DetailWrapper>
     )

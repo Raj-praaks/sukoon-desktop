@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
@@ -18,7 +18,7 @@ import BookBtn from "../elements/BookNowBtn";
 const Caption = (props) => {
     return (
         <div className="my-2">
-            <h2 className="text-sukoon text-lg font-gilroyRegular font-bold block">
+            <h2 className="text-sukoon text-lg font-normal font-bold block">
                 {props.subHeading || ''}
             </h2>
             <Para className="text-right py-2">
@@ -59,8 +59,11 @@ const WhySukoon = (props) => {
 };
 
 function InternationalPatient() {
+
+    const[overlay, setOverlay] = useState(false);
+
     return (
-        <Layout>
+        <Layout setOverlay={setOverlay}>
             <SEO
                 title="Home"
                 keywords={[`Sukoon`, `hospital`, `react`, `tailwindcss`]}
@@ -97,7 +100,7 @@ function InternationalPatient() {
                 <Para>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut hic recusandae vero.</Para>
             </form>
             <section className="p-4" id="InternationalPatientInfo">
-                <h2 className="text-sukoon text-3xl font-gilroyBold">Facilities For International Patient</h2>
+                <h2 className="text-sukoon text-3xl font-semibold">Facilities For International Patient</h2>
                 <Para width="100%">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at, deleniti dolor dolorem doloribus ducimus, ex excepturi illo illum ipsa quas, quos sapiente totam.</Para>
                 <ul>
                     <li className="text-para font-gilroyMedium text-base mt-3">1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate fuga id nisi.</li>
@@ -113,14 +116,14 @@ function InternationalPatient() {
                     <img src={PartnerHotel} />
                     <PartnerHotelContent className="mx-5 p-5 shadow-lg">
                         <span className="text-sukoon">Patient Care</span>
-                        <h2 className="text-sukoon text-2xl font-gilroyBold">Partners Hotels / Guest Houses</h2>
+                        <h2 className="text-sukoon text-2xl font-semibold">Partners Hotels / Guest Houses</h2>
                         <Para width="100%">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda cum dicta facilis, iure mollitia numquam quae quis tenetur voluptate voluptatibus! Distinctio minima non pariatur.</Para>
                     </PartnerHotelContent>
                 </div>
             </section>
             <section className="Stats p-5 pt-0">
                 <div className="Steps mb-5">
-                    <h2 className="text-sukoon font-gilroyBold text-3xl">Process</h2>
+                    <h2 className="text-sukoon font-semibold text-3xl">Process</h2>
                     <ul className="mt-2">
                         <li className="flex"><img width="12px" className="mr-2" src={SukoonBullets} /> Lorem ipsum dolor sit amet,</li>
                         <li className="flex"><img width="12px" className="mr-2" src={SukoonBullets} /> Lorem ipsum dolor sit amet,</li>
@@ -131,7 +134,7 @@ function InternationalPatient() {
                     </ul>
                 </div>
                 <div className="Steps mb-5">
-                    <h2 className="text-sukoon font-gilroyBold text-3xl">Checklist</h2>
+                    <h2 className="text-sukoon font-semibold text-3xl">Checklist</h2>
                     <ul className="mt-2">
                         <li className="flex"><img width="12px" className="mr-2" src={SukoonBullets} /> Lorem ipsum dolor sit amet,</li>
                         <li className="flex"><img width="12px" className="mr-2" src={SukoonBullets} /> Lorem ipsum dolor sit amet,</li>

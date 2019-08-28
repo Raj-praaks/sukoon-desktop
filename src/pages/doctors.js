@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
@@ -19,7 +19,7 @@ import MeetExperts from "../components/MeetExperts";
 const Caption = (props) => {
     return (
         <div className="my-4">
-            <h2 className="text-sukoon text-lg font-gilroyRegular font-bold block">
+            <h2 className="text-sukoon text-lg font-normal font-bold block">
                 {props.subHeading || ''}
             </h2>
             <Para>
@@ -81,8 +81,6 @@ const Doctors = [
     ];
 
 const CarouselItems = (item) =>{
-    console.log(2);
-    console.log(item);
     return(
             <DocCard className="">
                 <div className="DocImgSec">
@@ -104,20 +102,10 @@ const InPatientServices = (props) => {
     )
 };
 
-
-// const OutPatientServices = (props) => {
-//
-//     return (
-//         <section id="out-patient-services" className="p-4">
-//             <Title subHeading="OPD" titleLight="Out Patient" titleBold="Care Services" display="block"/>
-//             <Carousel content={content}/>
-//         </section>
-//     )
-// };
-
 function DoctorsPage() {
+    const[overlay, setOverlay] = useState(false);
     return (
-        <Layout>
+        <Layout setOverlay={setOverlay}>
             <SEO
                 title="Home"
                 keywords={[`Sukoon`, `hospital`, `react`, `tailwindcss`]}
@@ -137,7 +125,6 @@ function DoctorsPage() {
             </section>
             <InPatientServices/>
             <MeetExperts/>
-            {/*<OutPatientServices/>*/}
         </Layout>
 
     );

@@ -8,11 +8,11 @@ const Para = (props) =>{
         padding: ${props.padding || ''};
         text-align: ${props => props.textAlign || 'left'};
         hyphens: manual;
-        line-height: 5.4vw;
+        line-height: 1.5;
     `;
 
     return(
-        <Paragraph width={props.width} padding={props.padding} textAlign={props.textAlign} className={`${props.wrapperClass || '' } text-para font-gilroyMedium py-1 text-v6xl block`}>
+        <Paragraph width={props.width} padding={props.padding} textAlign={props.textAlign} className={`${props.wrapperClass || '' } text-para text-sm font-medium py-1 block`}>
             {props.children || props.content}
         </Paragraph>
     )

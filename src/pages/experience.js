@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import styled from "styled-components";
@@ -84,8 +84,11 @@ const ActivityContent = (props) =>{
 };
 
 function Experience() {
+
+    const[overlay, setOverlay] = useState(false);
+
     return (
-        <Layout>
+        <Layout setOverlay={setOverlay}>
             <SEO
                 title="Experience"
                 keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}

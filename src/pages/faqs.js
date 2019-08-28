@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
@@ -12,7 +12,7 @@ import Banner from "../components/Banner";
 const Caption = (props) => {
     return (
         <div className="my-2">
-            <h2 className="text-sukoon text-lg font-gilroyRegular font-bold block">
+            <h2 className="text-sukoon text-lg font-normal font-bold block">
                 {props.subHeading || ''}
             </h2>
             <Para className="text-right py-2">
@@ -169,8 +169,11 @@ const Faqs = (props) => {
 
 
 function Faq() {
+
+    const[overlay, setOverlay] = useState(false);
+
     return (
-        <Layout>
+        <Layout setOverlay={setOverlay}>
             <SEO
                 title="Home"
                 keywords={[`Sukoon`, `hospital`, `react`, `tailwindcss`]}

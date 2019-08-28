@@ -22,15 +22,14 @@ const Title = (props) => {
     `;
 
     return (
-        <Wrapper className={`${props.wrapperClass || ''} font-gilroyRegular`}>
-            <SubheadTop>{props.subHeading || 'Explore'}</SubheadTop>
-            <HeadingWrapper className="text-sukoon text-2xl w-full mt-2 block">
-                <HeadingLight className="font-light font-gilroyRegular mr-2"
+        <Wrapper className={`${props.wrapperClass || ''} font-normal`}>
+            <SubheadTop className="small">{props.subHeading || 'Explore'}</SubheadTop>
+            <HeadingWrapper className="text-sukoon w-full mt-2 block">
+                <HeadingLight className="font-normal mr-2"
                               display={props.display}>{props.titleLight || ''}</HeadingLight>
-                <span className="font-gilroyBold">
+                <span className="text-sukoon block font-semibold  mr-2 w-full">
                 {props.titleBold}
                 </span>
-
             </HeadingWrapper>
         </Wrapper>
     )

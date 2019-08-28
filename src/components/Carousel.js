@@ -16,14 +16,14 @@ const Cards = (item) =>{
     return(
         <CardContainer className={`my-2 p-3 mx-1`}>
             <div className="bg-white">
-                <div className="p-4 px-4 w-full">
-                    <h3 className="text-xl font-bold text-sukoon block">{item.mainTitle}
-                        <span className="font-bold text-sukoon block">{item.subTitle}</span>
+                <div className="py-6 px-4 w-full">
+                    <h3 className="font-bold text-sukoon block">{item.mainTitle}
+                        <span className="font-bold block">{item.subTitle}</span>
                     </h3>
                     <Para wrapperClass="my-1 py-2" width="14rem">
                         {item.para}
                     </Para>
-                    <ArrowButton border margin="10px 0px 0px 0px"/>
+                    <ArrowButton margin="10px 0"/>
                 </div>
             </div>
         </CardContainer>

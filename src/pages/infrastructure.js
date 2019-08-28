@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -46,8 +46,10 @@ const Content = (props) =>{
 };
 
 function InfrastructurePage() {
+    const[overlay, setOverlay] = useState(false);
+
     return (
-        <Layout>
+        <Layout setOverlay={setOverlay}>
             <SEO
                 title="About"
                 keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
