@@ -7,7 +7,7 @@ import moment from "moment";
 
 //  Components
 import Radio from "../../elements/RadioButton/desktop";
-import DocImg from "../../images/doctor/doc_mobile.png";
+
 import BookingBtn from "../../elements/BookNowBtn/desktop";
 
 import SVG from "../../elements/SVG/desktop";
@@ -19,6 +19,7 @@ import SukoonLogo from "../../images/logo_light.svg";
 import Calender from "../../images/cal.svg";
 import Edit from "../../images/edit_icon.png";
 import Timer from "../../images/clock.svg";
+import DocImg from "../../images/doctor/doctor1.jpg";
 
 
 const Form = styled.form`
@@ -59,8 +60,9 @@ const HomeLink = styled.div`
 
 const TimerWrapper = styled.div`
     margin-right: 2rem;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     padding: 5px 10px;
+    /* text-align:center; */
 `;
 
 const TopLogo = styled.img`
@@ -285,6 +287,8 @@ ul li {
 }
 .DocCard img {
   width:100%;
+  height:160px;
+  object-fit:cover;
 }
 .DocCard p {
     width: 100%;
@@ -305,7 +309,8 @@ ul li {
 const DocSlotImg = styled.img`
 
 max-width:100%;
-height:100%;
+max-height: 225px;
+    object-fit: cover;
 
 `;
 
@@ -331,6 +336,9 @@ const TimeSlot = styled.div`
 }
 .slot div {
   margin:5px;
+  /* background: transparent; */
+    border: 1px solid #fff;
+    color: #fff;
 }
 
 `;
@@ -349,7 +357,7 @@ justify-content:center;
 
 
 // add_material UI date picker
-const DatePicker_Desktop = () =>{
+const DatePicker = () =>{
 
   return (
     <MainSec className="">
@@ -366,10 +374,10 @@ const DatePicker_Desktop = () =>{
 
 };
 
-const Doclist_Desktop = () =>{
+const Doclist = () =>{
 
   return (
-    <Main_sec className="">
+    <MainSec className="">
       <h2 className="pt-5 text-white text-2xl w-full font-bold">Choose An Expert</h2>
       <DoctorListing className="">
         <ul>
@@ -438,12 +446,12 @@ const Doclist_Desktop = () =>{
       <div className="w-full justify-end flex">
       <BookingBtn wrapperClass="" buttonClass={''} theme="mint" padding="8px">Submit</BookingBtn>
       </div>
-    </Main_sec>
+    </MainSec>
   )
 
 };
 
-const DocBookSlot_Desktop = () =>{
+const DocBookSlot = () =>{
 
   const[activeCategory, setCategory] = useState('category1');
   const setView = (view , data) =>{
@@ -466,17 +474,17 @@ return (
             <span className="text-xs text-white font-regular mt-2 leading-tight block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </span>
             <div className="w-full mt-8 overflow-y-hidden">
             <DateSlot className="">
-              <BookingBtn buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category1' ? '': '2px'} transparent={activeCategory !== 'category1'} arguments={['category1']} clickFn={setView}>Tuesday<br/>17</BookingBtn>
-              <BookingBtn buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category2' ? '': '2px'} transparent={activeCategory !== 'category2'} arguments={['category2']} clickFn={setView}>Wednesday<br/>18</BookingBtn>
-              <BookingBtn buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category3' ? '': '2px'} transparent={activeCategory !== 'category3'} arguments={['category3']} clickFn={setView}>Thursday<br/>19</BookingBtn>
-              <BookingBtn buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category4' ? '': '2px'} transparent={activeCategory !== 'category4'} arguments={['category4']} clickFn={setView}>Friday<br/>20</BookingBtn>
-              <BookingBtn buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category5' ? '': '2px'} transparent={activeCategory !== 'category5'} arguments={['category5']} clickFn={setView}>Saturday<br/>21</BookingBtn>
-              <BookingBtn buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category6' ? '': '2px'} transparent={activeCategory !== 'category6'} arguments={['category6']} clickFn={setView}>Sunday<br/>22</BookingBtn>
-              <BookingBtn buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category7' ? '': '2px'} transparent={activeCategory !== 'category7'} arguments={['category7']} clickFn={setView}>Monday<br/>23</BookingBtn>
+              <BookingBtn buttonText={`#fff`} buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category1' ? '': '2px'} theme="white" transparent={activeCategory !== 'category1'} arguments={['category1']} clickFn={setView}>Tuesday<br/>17</BookingBtn>
+              <BookingBtn buttonText={`#fff`} buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category2' ? '': '2px'} theme="white" transparent={activeCategory !== 'category2'} arguments={['category2']} clickFn={setView}>Wednesday<br/>18</BookingBtn>
+              <BookingBtn buttonText={`#fff`} buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category3' ? '': '2px'} theme="white" transparent={activeCategory !== 'category3'} arguments={['category3']} clickFn={setView}>Thursday<br/>19</BookingBtn>
+              <BookingBtn buttonText={`#fff`} buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category4' ? '': '2px'} theme="white" transparent={activeCategory !== 'category4'} arguments={['category4']} clickFn={setView}>Friday<br/>20</BookingBtn>
+              <BookingBtn buttonText={`#fff`} buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category5' ? '': '2px'} theme="white" transparent={activeCategory !== 'category5'} arguments={['category5']} clickFn={setView}>Saturday<br/>21</BookingBtn>
+              <BookingBtn buttonText={`#fff`} buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category6' ? '': '2px'} theme="white" transparent={activeCategory !== 'category6'} arguments={['category6']} clickFn={setView}>Sunday<br/>22</BookingBtn>
+              <BookingBtn buttonText={`#fff`} buttonClass="text-sm leading-tight text-white" buttonPadding="5px 10px" wrapperPadding={activeCategory !== 'category7' ? '': '2px'} theme="white" transparent={activeCategory !== 'category7'} arguments={['category7']} clickFn={setView}>Monday<br/>23</BookingBtn>
             </DateSlot>
           </div>
-          <div className="w-full flex mt-6 text-white justify-between">
-            <h4>Schedule My Booking For ? </h4>
+          <div className="w-full flex mt-6 text-white">
+            <h4 className="mr-5">Schedule My Booking For ? </h4>
             <Input type="select" />
           </div>          
           </p>
@@ -486,33 +494,39 @@ return (
             <div className="SlotTiming w-1/4 text-white text-right pr-12">Morning</div>
             <div className="w-3/4 flex flex-wrap h-fit">
               <div className="slot h-fit">
-                <TimerWrapper className="flex items-center bg-white">
-                  <Radio spanText="03:00 - 05:00 PM" spanClass="" handleButton={''} arguments={['Info','03:00 - 05:00 PM']} />
+                <TimerWrapper className="flex  items-center  bg-white">
+                  {/* <Radio spanText="03:00 - 05:00 PM" spanClass="" handleButton={''} arguments={['Info','03:00 - 05:00 PM']} /> */}
+                  <span className="font-light block text-center w-full text-sukoon block text-center w-full">03:00 To 03:15PM</span>
                 </TimerWrapper>
               </div>
               <div className="slot h-fit">
-                <TimerWrapper className="flex items-center bg-white">
-                  <Radio spanText="03:00 - 05:00 PM" spanClass="" handleButton={''} arguments={['Info','03:00 - 05:00 PM']} />
+                <TimerWrapper className="flex  items-center ">
+                  {/* <Radio spanText="03:00 - 05:00 PM" spanClass="" handleButton={''} arguments={['Info','03:00 - 05:00 PM']} /> */}
+                  <span className="font-light block text-center w-full">03:00 To 03:15PM</span>
                 </TimerWrapper>
               </div>
               <div className="slot h-fit">
-                <TimerWrapper className="flex items-center bg-white">
-                  <Radio spanText="03:00 - 05:00 PM" spanClass="" handleButton={''} arguments={['Info','03:00 - 05:00 PM']} />
+                <TimerWrapper className="flex  items-center ">
+                  {/* <Radio spanText="03:00 - 05:00 PM" spanClass="" handleButton={''} arguments={['Info','03:00 - 05:00 PM']} /> */}
+                  <span className="font-light block text-center w-full">03:00 To 03:15PM</span>
                 </TimerWrapper>
               </div>
               <div className="slot h-fit">
-                <TimerWrapper className="flex items-center bg-white">
-                  <Radio spanText="03:00 - 05:00 PM" spanClass="" handleButton={''} arguments={['Info','03:00 - 05:00 PM']} />
+                <TimerWrapper className="flex  items-center ">
+                  {/* <Radio spanText="03:00 - 05:00 PM" spanClass="" handleButton={''} arguments={['Info','03:00 - 05:00 PM']} /> */}
+                  <span className="font-light block text-center w-full">03:00 To 03:15PM</span>
                 </TimerWrapper>
               </div>
               <div className="slot h-fit">
-                <TimerWrapper className="flex items-center bg-white">
-                  <Radio spanText="03:00 - 05:00 PM" spanClass="" handleButton={''} arguments={['Info','03:00 - 05:00 PM']} />
+                <TimerWrapper className="flex  items-center ">
+                  {/* <Radio spanText="03:00 - 05:00 PM" spanClass="" handleButton={''} arguments={['Info','03:00 - 05:00 PM']} /> */}
+                  <span className="font-light block text-center w-full">03:00 To 03:15PM</span>
                 </TimerWrapper>
               </div>
               <div className="slot h-fit">
-                <TimerWrapper className="flex items-center bg-white">
-                  <Radio spanText="03:00 - 05:00 PM" spanClass="" handleButton={''} arguments={['Info','03:00 - 05:00 PM']} />
+                <TimerWrapper className="flex  items-center ">
+                  {/* <Radio spanText="03:00 - 05:00 PM" spanClass="" handleButton={''} arguments={['Info','03:00 - 05:00 PM']} /> */}
+                  <span className="font-light block text-center w-full">03:00 To 03:15PM</span>
                 </TimerWrapper>
               </div>
             </div>
@@ -529,7 +543,7 @@ return (
   
 };
 
-const PatientForm_Desktop = () =>{
+const PatientForm = () =>{
 
 const handleRadioButton = () => {
   return null;
@@ -574,16 +588,16 @@ return (
 
 
 
-const ThankYou_Desktop = () =>{
+const ThankYou = () =>{
 
   return(
     <ThankSec className="p-5 h-full items-center">
       <div className="w-full">
         <h2 className="text-white text-6xl font-bold text-center">Thank You</h2>
-        <h4 className="text-white text-base text-center">Your video appointment is on  
-        <b>24th March, 2019</b><br/> 
+        <h4 className="text-white text-base text-center">Your video appointment is on   
+        <span className={`font-bold text-sukoonYellow`}> 24th March, 2019</span><br/> 
         With Dr. Samir Parikh 
-        From <b>9:00 - 9:15 AM</b></h4>
+        From <span className={`font-bold text-sukoonYellow`}>9:00 - 9:15 AM</span></h4>
       </div>
       <div className="w-full mt-16">
         <p className="text-white text-sm text-center">Your appointment details have also been sent 
@@ -642,11 +656,11 @@ export default class BookingPage extends React.Component{
         </HomeLink>
 
 
-        {/* <DatePicker_Desktop /> */}
-        {/* <Doclist_Desktop /> */}
-        {/* <DocBookSlot_Desktop />         */}
-        {/* <PatientForm_Desktop /> */}
-        <ThankYou_Desktop />
+        {/* <DatePicker /> */}
+        {/* <Doclist /> */}
+        <DocBookSlot />        
+        {/* <PatientForm /> */}
+        {/* <ThankYou /> */}
 
 
         {/* <LogoRow className="flex justify-center my-auto">
